@@ -4,6 +4,13 @@ import 'dotenv/config';
 import connectDB from './configs/db.js';
 import { inngest, functions } from './inngest/index.js'
 import { serve } from 'inngest/express'
+import dns from 'dns/promises'
+
+// Use Cloudflare + Google DNS
+dns.setServers([
+  '1.1.1.1',
+  '8.8.8.8'
+])
 
 const app = express();
 
